@@ -1,0 +1,31 @@
+Name: Bhavya Sri Kantamani
+UTA ID: 1002118109
+Understanding the Evaluation Function in Red-Blue Nim
+-----------------------------------------------------
+The evaluation function is a cornerstone of the Red-Blue Nim's AI strategy, guiding the computer's decisions by scoring the desirability of game states. This document elucidates the function's design, emphasizing its adaptability to both game versions and its strategic depth.
+
+Core Principles:
+
+Scoring Mechanism:
+- Objective: Assign a numerical value to each game state, reflecting its attractiveness from the computer's perspective.
+- Method: Calculates a base score using a weighted sum of remaining red and blue marbles (2 points per red, 3 points per blue), capturing the state's immediate value.
+
+Depth Influence:
+- Objective: Differentiate between short-term and long-term strategies by incorporating the search depth.
+- Method: Modifies the base score based on the current depth in the search tree relative to the depth limit, encouraging strategies that align with the nearing endgame scenarios.
+
+Game Version Adaptation:
+- Adjusts scoring dynamics to suit the unique objectives of each game version:
+  - Standard: Prioritizes sustaining the game by avoiding states that lead to losing.
+  - Misère: Values states that hasten the game's conclusion, aligning with the reversed winning condition.
+
+Strategic Rationale:
+- The function integrates both immediate state evaluation and predictive depth adjustment to foster a balanced approach. This ensures the AI not only reacts to the current board but also plans for future developments, a critical aspect given the game's alternating turn structure.
+- By valuing depth, the function implicitly incorporates a time-to-win or time-to-lose factor, refining the AI's strategic depth. It prefers winning paths that are closer in the decision tree and avoids prolonging the game unnecessarily, matching human strategic considerations.
+
+Version-Specific Strategies:
+- Standard Version: Aims for a high score while managing depth to avoid premature game endings. It reflects a cautious, progressive strategy, seeking to outmaneuver the opponent by maintaining options.
+- Misère Version: Seeks to minimize the score, an inversion aligning with the need to end the game with minimal moves. This approach encapsulates a more aggressive, risk-taking strategy, focusing on forcing the opponent into a losing position.
+
+Conclusion:
+The evaluation function is meticulously crafted to align with Red-Blue Nim's dual nature, offering a nuanced, dynamic tool for the AI's decision-making arsenal. Its design underscores a sophisticated understanding of game theory, ensuring the computer is a formidable opponent across both versions of the game.
